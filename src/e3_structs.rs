@@ -1,3 +1,6 @@
+
+#[allow(dead_code)]
+#[derive(Debug)]
 struct User {
     username: String,
     email: String,
@@ -21,6 +24,7 @@ impl Rectangle {
     }
 }
 
+#[allow(dead_code)]
 pub fn run() {
     let mut user1 = User {
         email: String::from("moh3a@fuck.com"),
@@ -29,7 +33,7 @@ pub fn run() {
         sign_in_count: 1
     };
 
-    let name = user1.username;
+    let _name = user1.username;
     user1.username = String::from("moh");
 
     let user2 = build_user(String::from("zara@mail.com"), String::from("zara"));
@@ -39,6 +43,7 @@ pub fn run() {
         ..user2 // the rest of the fields will be completed with whatever values in user2 ..spread operator like typescript
     };
 	println!("Hello structs");
+	println!("user3: {:#?}", user3);
 
     //    let width1 = 30;
     //    let height1 = 50;

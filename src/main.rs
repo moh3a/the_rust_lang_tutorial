@@ -1,9 +1,11 @@
-mod guess_game;
-mod ownership;
-mod structs;
+mod e1_guess_game;
+mod e2_ownership;
+mod e3_structs;
+mod e4_enums;
 
 fn main() {
-    // guess_game::run();
-    // ownership::run();
-    structs::run();
+    // 1_guess_game::run();
+    // 2_ownership::run();
+    // e3_structs::run();
+    e4_enums::run();
 }
