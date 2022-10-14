@@ -5,29 +5,32 @@
 // we can put data directly inside the enum variant
 #[derive(Debug)]
 enum IpAddressKind {
-    V4(u8,u8,u8,u8),
-    V6(String)
+    V4(u8, u8, u8, u8),
+    V6(String),
 }
 
 #[allow(dead_code)]
 struct IpAddress {
     kind: IpAddressKind,
-    address:String
+    address: String,
 }
 
 #[derive(Debug)]
 enum Message {
     _Quit,
-    _Move {x: i32, y: i32},
+    _Move { x: i32, y: i32 },
     Write(String),
-    _ChangeColor(i32,i32,i32,i32)
+    _ChangeColor(i32, i32, i32, i32),
 }
 
 // just like structs, we can define methods and associated functions on our enum type
 impl Message {
     fn print_message() {
-        println!("{:?}", Message::Write(String::from("Hey from enum implementation!")));
-    }   
+        println!(
+            "{:?}",
+            Message::Write(String::from("Hey from enum implementation!"))
+        );
+    }
 }
 
 // enum Coin {
@@ -43,6 +46,7 @@ impl Message {
 //     }
 // }
 
+#[allow(dead_code)]
 pub fn run() {
     println!("hello enums");
     let _four = IpAddressKind::V4;
@@ -50,17 +54,17 @@ pub fn run() {
 
     // with simple enum
     // let localhost = IpAddress {
-    //     kind: IpAddressKind::V4, 
+    //     kind: IpAddressKind::V4,
     //     address: String::from("127.0.0.1")
     // };
 
     // with putting data inside the enum variant
-    let localhost = IpAddressKind::V4(127,0,0,1);
+    let localhost = IpAddressKind::V4(127, 0, 0, 1);
     println!("{:?}", localhost);
 
     Message::print_message();
 
-    let x:i8 = 5;
+    let x: i8 = 5;
     let y: Option<i8> = Some(5); // even value `None` works here because we added unwrap_or() with a default value
 
     // ! cannot add `Option<i8>` to `i8`
@@ -68,12 +72,15 @@ pub fn run() {
 
     // provide a default value for it to be valid
     let sum = x + y.unwrap_or(5);
-    println!("add integer 5 with Option<5>.unwarp_or(default value): {}", sum);
+    println!(
+        "add integer 5 with Option<5>.unwarp_or(default value): {}",
+        sum
+    );
 
     let five = Some(5);
     println!("{:?}", five);
     let six = plus_one(five);
-    println!("{:?}", six);   
+    println!("{:?}", six);
 
     // the if let expression
 
@@ -90,9 +97,9 @@ pub fn run() {
 }
 
 // combine Option enum with the match expression
-fn plus_one(x:  Option<i32>) -> Option<i32> {
+fn plus_one(x: Option<i32>) -> Option<i32> {
     match x {
         None => None,
-        Some(i) => Some(i + 1)
+        Some(i) => Some(i + 1),
     }
 }

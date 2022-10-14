@@ -31,6 +31,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "first_app"
+version = "0.1.0"
+dependencies = [
+ "colored",
+ "rand",
+]
+
+[[package]]
 name = "getrandom"
 version = "0.2.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -39,14 +47,6 @@ dependencies = [
  "cfg-if",
  "libc",
  "wasi",
-]
-
-[[package]]
-name = "hello"
-version = "0.1.0"
-dependencies = [
- "colored",
- "rand",
 ]
 
 [[package]]
