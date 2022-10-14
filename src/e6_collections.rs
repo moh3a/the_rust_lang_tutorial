@@ -1,5 +1,6 @@
 use std::collections::HashMap;
 
+#[allow(dead_code)]
 pub fn run() {
     println!("Hello collections");
 
@@ -96,10 +97,23 @@ pub fn run() {
     let yellow = String::from("yellow");
     let mut scores = HashMap::new();
 
-    scores.insert(blue, 10);
-    scores.insert(yellow, 50);
+    scores.insert(&blue, 10);
+    // this will overwrite first insert
+    scores.insert(&blue, 20);
+
+    // if entry exists do nothing else create it
+    scores.entry(&yellow).or_insert(40);
 
     for (key, value) in scores {
         println!("{}: {}", key, value);
     }
+
+    let text = "hello world wonderful world";
+    let mut map = HashMap::new();
+
+    for word in text.split_whitespace() {
+        let count = map.entry(word).or_insert(0);
+        *count += 1;
+    }
+    println!("{:?}", map);
 }
